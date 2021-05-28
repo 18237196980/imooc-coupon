@@ -7,6 +7,11 @@
     <groupId>com.imooc.coupon</groupId>
     <artifactId>imooc-coupon</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>coupon-eureka</module>
+        <module>coupon-zuul</module>
+        <module>imooc-coupon-service</module>
+    </modules>
 
     <name>imooc-coupon</name>
     <description>分布式优惠券</description>
@@ -17,13 +22,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.5.RELEASE</version>
+        <version>2.1.9.RELEASE</version>
     </parent>
 
     <properties>
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
     </properties>
 
+    <!--<dependencies>中的依赖会被所有子模块引入-->
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -48,8 +54,17 @@
             </dependency>
         </dependencies>
 
-
     </dependencyManagement>
 
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 </project>
